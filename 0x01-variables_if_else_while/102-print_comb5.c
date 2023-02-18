@@ -2,36 +2,27 @@
 
 int main(void)
 {
-    int tens;
-    int ones;
-    int t;
-    int o;
-    int first_pair = 1;
+    int i, j;
 
-    for (tens = 0; tens < 100; tens++) {
-        for (ones = tens + 1; ones < 100; ones++) {
-            t = ones % 10;
-            o = tens % 10;
-            tens /= 10;
-            ones /= 10;
-            putchar('0' + tens);
-            putchar('0' + ones);
+    for (i = 0; i <= 98; i++)
+    {
+        for (j = i + 1; j <= 99; j++)
+        {
+            putchar((i / 10) + '0');
+            putchar((i % 10) + '0');
             putchar(' ');
-            putchar('0' + o);
-            putchar('0' + t);
+            putchar((j / 10) + '0');
+            putchar((j % 10) + '0');
 
-            if (first_pair) {
-                first_pair = 0;
-            } else {
+            if (i != 98 || j != 99)
+            {
                 putchar(',');
                 putchar(' ');
             }
-            tens *= 10;
-            ones *= 10;
-            tens += o;
-            ones += t;
         }
     }
+
     putchar('\n');
+
     return 0;
 }
